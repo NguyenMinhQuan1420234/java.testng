@@ -16,10 +16,11 @@ public class Test implements WebDriver {
         System.setProperty("webdriver.chrome.driver", "/Users/bibuibanchi/Documents/chromedriver");
         
         WebDriver driver = new ChromeDriver();
-
+        driver.manage().window().maximize();
         driver.get("https://rahulshettyacademy.com");
         System.out.println(driver.getCurrentUrl());
         System.out.println(driver.getTitle());
+        
         driver.close();
     }
 
