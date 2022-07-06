@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Test implements WebDriver {
@@ -28,10 +29,11 @@ public class Test implements WebDriver {
         driver.findElement(By.id("inputUsername")).sendKeys("quannguyen@gmail.com");
         driver.findElement(By.xpath("//input[@name='inputPassword']")).sendKeys("12345");
         driver.findElement(By.xpath("//button[contains(text(),'Sign')]")).click();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        String ActualText = driver.findElement(By.xpath("//p[@class='error']")).getText();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.visibilityOfElementLocated((By.cssSelector(".error"))));
+        WebElement error = driver.findElement(By.cssSelector(".error"));
+        String ActualText = error.getText();
         assertEquals("* Incorrect username or password", ActualText);
-        
         
     }
 

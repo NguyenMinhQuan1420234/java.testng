@@ -36,7 +36,9 @@ class AppTest {
         driver.findElement(By.xpath("//input[@name='inputPassword']")).sendKeys("12345");
         driver.findElement(By.xpath("//button[contains(text(),'Sign')]")).click();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-        WebElement error = wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//p[@class='error']"))));
+        // wait.until(ExpectedConditions.visibilityOfElementLocated((By.cssSelector(".error"))));
+        wait.until(ExpectedConditions.visibilityOfElementLocated((By.xpath("//p[@class='error']"))));
+        WebElement error = driver.findElement(By.cssSelector(".error"));
         String ActualText = error.getText();
         assertEquals("* Incorrect username or password", ActualText);
     }
