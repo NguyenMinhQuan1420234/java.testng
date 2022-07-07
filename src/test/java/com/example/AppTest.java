@@ -38,7 +38,7 @@ public static ExtentReports report;
         }
     @Test
     void testApp() {
-        System.setProperty("webdriver.chrome.driver", "/Users/bibuibanchi/Documents/chromedriver");
+        // System.setProperty("webdriver.chrome.driver", "/Users/bibuibanchi/Documents/chromedriver");
         
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();

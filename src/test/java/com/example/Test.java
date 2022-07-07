@@ -12,14 +12,16 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class Test implements WebDriver {
 
     public static void main(String[] args) {
         // window
         // System.setProperty("webdriver.chrome.driver", "C:/Users/banch/TestNG/demo/chromedriver.exe");
         // macos
-        System.setProperty("webdriver.chrome.driver", "/Users/bibuibanchi/Documents/chromedriver");
-        
+        //System.setProperty("webdriver.chrome.driver", "/Users/bibuibanchi/Documents/chromedriver");
+        WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://rahulshettyacademy.com/locatorspractice/");
